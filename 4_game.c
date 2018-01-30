@@ -1,4 +1,4 @@
-/*4.Write a game program as follows
+/*Write a game program as follows
 i) Read the size of the square matrix N*N
 ii) Display a square matrix (blank) of N*N
 iii) Allow the player to insert data into the matrix as displayed (you should have a chance to the user to confirm the entry and to alter the previous entries,if desired.)
