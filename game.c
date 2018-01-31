@@ -39,7 +39,7 @@ printf("The square matrix is:\n");
 
  do
  {
- printf("Do you want to make any changes? yes=1 no=0");
+ printf("Do you want to make any changes? yes=1 no=0  ");
  scanf("%d",&ch);
   if(ch==1)
 {
