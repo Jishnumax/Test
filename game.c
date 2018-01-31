@@ -125,7 +125,7 @@ for(k=1;k<3;k++)
   printf("\nPlayer 1 won");
   else if(flag==2)
   printf("\nPlayer 2 won");
-  
+  /*need to make changes. Multiplayer functionality not working as expected*/
 }
 
 
