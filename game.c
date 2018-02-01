@@ -9,7 +9,7 @@ The player's performance will be judged by the minimum score achieved other than
 #include<stdio.h>
 void main()
 {
- int n,arr[10][10],i,j,p=1,sum_r[20]={0},sum_c[20]={0},sum_d1=0,sum_d2=0,f=0;
+ int n,arr[10][10],i,j,p,sum_r[20]={0},sum_c[20]={0},sum_d1=0,sum_d2=0,f=0;
  int r,c,nval,score[3]={},ch=0,k,flag;
  printf("Enter the size of square matrix:");
  scanf("%d",&n);
@@ -20,9 +20,9 @@ void main()
 	 printf("\n");
  }
  //2 player
-for(k=1;k<3;k++)
+for(k=1;k<=2;k++)
 {
-
+ p=1;
  printf("\nPlayer %d",k);
  printf("\nEnter the elements\n");
  for(i=0;i<n;i++)
@@ -96,36 +96,19 @@ for(i=0;i<n;i++)
   {
    if(sum_r[i]==sum_c[i] && sum_r[i]==sum_d1)
     f=1;
-}
+  }
 }
 if(f==1)
- {
  score[k]=p*10;
- //printf("\n Magic Square. Score=%d",score);
- }
 else
- {
 score[k]=0;
-//printf("\nNot Magic Square. Score=%d",score);
- }
 }
-for(k=1;k<3;k++)
-{
- if(score[k]!=0)
- {
-  if(score[k]<score[k+1])
-  flag=1;
-  else
-  flag=2;
-   }
-  else
-  printf("\nPlayer %d failed",k);
-  }
-  if(flag==1)
-  printf("\nPlayer 1 won");
-  else if(flag==2)
-  printf("\nPlayer 2 won");
-  /*need to make changes. Multiplayer functionality not working as expected*/
+if(score[1]==score[2])
+printf("\nDraw");
+else if(score[1]<score[2])
+printf("\nPlayer 1 won");
+else
+printf("\nPlayer 2 won");
 }
 
 
