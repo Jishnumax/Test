@@ -7,6 +7,7 @@ Score=0(zero) if it is not a magic square.Otherwise the score=P*10,where P is th
 
 The player's performance will be judged by the minimum score achieved other than zero.*/
 #include<stdio.h>
+#include<string.h>
 void main()
 {
  int n,arr[10][10],i,j,p,sum_r[20]={0},sum_c[20]={0},sum_d1=0,sum_d2=0,f=0;
@@ -26,8 +27,8 @@ for(k=1;k<=2;k++)
  printf("\nPlayer %d",k);
  printf("\nEnter the elements\n");
  for(i=0;i<n;i++)
- { 
-   for(j=0;j<n;j++) 
+ {
+   for(j=0;j<n;j++)
    scanf("%d",&arr[i][j]);
   }
  printf("The square matrix is:\n");
@@ -55,7 +56,7 @@ for(k=1;k<=2;k++)
  for(i=0;i<n;i++)
  {
   for(j=0;j<n;j++)
-  
+
   printf("%d ",arr[i][j]);
   printf("\n");
 }
@@ -65,13 +66,15 @@ for(k=1;k<=2;k++)
 
 //sum of rows
 for(i=0;i<n;i++)
-{ 
+{
+  memset(sum_r,0,20);
  for(j=0;j<n;j++)
  sum_r[i]=sum_r[i]+arr[i][j];
 }
 //sum of columns
 for(i=0;i<n;i++)
-{ 
+{
+  memset(sum_c,0,20);
  for(j=0;j<n;j++)
  sum_c[i]=sum_c[i]+arr[j][i];
 }
@@ -82,16 +85,18 @@ for(i=0;i<n;i++)
  if(i==j)
  sum_d1=sum_d1+arr[i][j];
 }
-//sum of diagonal2 
+sum_d1=0;
+//sum of diagonal2
 for(i=0;i<n;i++)
 {
  for(j=0;j<n;j++)
  if((i+j)==(n-1))
  sum_d2=sum_d2+arr[i][j];
 }
+sum_d2=0;
 //Comparison
 for(i=0;i<n;i++)
-{ 
+{
   if(sum_r[i]==sum_r[i+1] && sum_d1==sum_d2 && sum_c[i]==sum_c[i+1])
   {
    if(sum_r[i]==sum_c[i] && sum_r[i]==sum_d1)
@@ -110,9 +115,3 @@ printf("\nPlayer 1 won");
 else
 printf("\nPlayer 2 won");
 }
-
-
-	
- 
-
-
