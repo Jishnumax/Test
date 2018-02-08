@@ -9,7 +9,7 @@ The player's performance will be judged by the minimum score achieved other than
 #include<stdio.h>
 void main()
 {
- int n,arr[10][10],i,j,p,sum_r[20]={0},sum_c[20]={0},sum_d1=0,sum_d2=0,f=0;
+ int n,arr[10][10],i,j,p,f;
  int r,c,nval,score[3]={},ch=0,k,flag;
  printf("Enter the size of square matrix:");
  scanf("%d",&n);
@@ -22,7 +22,9 @@ void main()
  //2 player
 for(k=1;k<=2;k++)
 {
+ int sum_r[20]={0},sum_c[20]={0},sum_d1=0,sum_d2=0;
  p=1;
+ f=0;
  printf("\nPlayer %d",k);
  printf("\nEnter the elements\n");
  for(i=0;i<n;i++)
@@ -51,18 +53,17 @@ for(k=1;k<=2;k++)
  scanf("%d",&nval);
  arr[r][c]=nval;
  p++;
- }
+ 
  for(i=0;i<n;i++)
  {
   for(j=0;j<n;j++)
   
   printf("%d ",arr[i][j]);
   printf("\n");
+ }
 }
 }
  while(ch==1);
-
-
 //sum of rows
 for(i=0;i<n;i++)
 { 
@@ -103,13 +104,34 @@ if(f==1)
 else
 score[k]=0;
 }
-if(score[1]==score[2])
-printf("\nDraw");
-else if(score[1]<score[2])
-printf("\nPlayer 1 won");
-else
-printf("\nPlayer 2 won");
+printf("\nScore 1:%d",score[1]);
+printf("\nScore 2:%d",score[2]);
+if(score[1]!=0 && score[2]!=0)
+{
+ if(score[1]==score[2])
+ printf("\nDraw");
+ else if(score[1]<score[2])
+ printf("\nPlayer 1 won");
+ else
+ printf("\nPlayer 2 won");
 }
+else
+{
+ if(score[1]==0 && score[2]==0)
+ printf("\nBoth failed");
+ else if(score[1]==0)
+ printf("\nPlayer 2 wins");
+ else
+ printf("\nPlayer 1 wins");
+ }
+ printf("\n");
+}
+
+
+	
+ 
+
+
 
 
 	
